@@ -26,3 +26,5 @@ Biến tài liệu thô thành một ảnh đồ họa hoàn chỉnh, có chủ 
 ## Bàn giao
 
 Bàn giao ảnh PNG hoàn thiện. Nêu kích thước pixel và xác nhận metadata 600 PPI đã được kiểm tra. Nếu biết khổ in, nêu độ phân giải hiệu dụng tại khổ đó; không gọi ảnh “600 PPI khi in” chỉ dựa vào metadata. Chỉ tạo thêm JPG/TIFF khi người dùng yêu cầu hoặc nơi in cần định dạng đó.
+
+Dùng [sample-test-prompt.md](references/sample-test-prompt.md) khi người dùng cần prompt mẫu để thử skill với file Word.
