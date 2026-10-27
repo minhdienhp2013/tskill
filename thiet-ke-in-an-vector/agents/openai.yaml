@@ -1,0 +1,14 @@
+interface:
+  display_name: Thiết kế đồ họa in
+  short_description: Biến bản thô thành thiết kế vector sẵn sàng in
+  default_prompt: Dùng $thiet-ke-in-an-vector để thiết kế bản in chuyên nghiệp từ
+    tài liệu nguồn, giữ nguyên nội dung.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
