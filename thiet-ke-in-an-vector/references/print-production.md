@@ -1,40 +1,35 @@
-# Print production and quality checks
+# Kích thước ảnh và chất lượng in
 
-Use this reference when the user intends to print the result or asks for high-resolution output.
+Dùng tài liệu này khi tạo ảnh 4K, gắn 600 PPI hoặc chuẩn bị ảnh để in.
 
-## Confirm the physical format
+## 4K theo tỷ lệ ảnh
 
-- Record finished width and height, orientation, number of sides/pages, and intended output format.
-- Preserve a usable source document's page size unless the user asks for a change.
-- Follow the print shop's supplied bleed, safe-area, color, and PDF requirements. Do not assume that every shop accepts the same values.
-- If production specs are unavailable, label the result as a print-oriented proof and state which specs remain unconfirmed.
+- Khung UHD ngang tiêu chuẩn: 3840 × 2160 px.
+- Khung dọc UHD: 2160 × 3840 px. Đây là tỷ lệ dọc 4K hợp lệ; không đổi thành ngang nếu người dùng cần bố cục dọc.
+- Với tỷ lệ trang hoặc khung riêng, giữ tỷ lệ nguồn và đặt cạnh dài ở 3840 px, trừ khi người dùng chỉ định chính xác kích thước khác.
+- Kết xuất chữ, shape, đường nối và các chi tiết hình học ngay ở kích thước đích. Không làm ảnh nhỏ rồi phóng lớn toàn trang để giả độ nét.
 
-## Keep vector content vector
+## 600 PPI và kích thước in
 
-- Keep titles, body text, prices, diagram nodes, connectors, borders, and simple decorative geometry as vector text/shapes.
-- Use fonts with Vietnamese glyph coverage. Embed fonts in PDF when the export path supports it; verify diacritics in the rendered output.
-- Use raster images only where continuous-tone artwork, photography, or generated texture is appropriate. Check resolution at its placed size.
-- Do not rasterize the entire page merely to claim 4K. If the user also needs a PNG, export a separate raster preview at a stated pixel size.
+PPI là số pixel trên mỗi inch khi in. Metadata 600 PPI ghi kích thước in dự kiến của ảnh, nhưng tự nó không thêm pixel hoặc chi tiết.
 
-## Raster resolution
+Công thức:
 
-Calculate effective resolution from the placed dimensions: pixel width or height divided by the corresponding print dimension in inches. Prefer the printer's requested PPI. If none is given, explain the chosen value and note that fine detail, viewing distance, paper, and print process affect what is suitable. Do not treat PPI metadata alone as added detail.
+`pixel = inch × PPI`
 
-## PDF review
+Ví dụ:
 
-Render every page and inspect the actual page images. Check:
+- 3840 × 2160 px ở 600 PPI tương ứng khoảng 6.4 × 3.6 inch.
+- 2160 × 3840 px ở 600 PPI tương ứng khoảng 3.6 × 6.4 inch.
+- A4 ở 600 PPI cần khoảng 4961 × 7016 px (ngang: 7016 × 4961 px).
 
-- page dimensions, orientation, and front/back order;
-- clipped text, missing glyphs, overlaps, cramped spacing, and small type;
-- exact spelling and punctuation against the locked source text;
-- diagram parent-child links, arrow direction, and reading order;
-- margins, trim and bleed areas when specified;
-- image sharpness, contrast, transparency, and color consistency.
+Nếu người dùng chỉ nói “4K, 600 PPI” mà không nêu khổ giấy, dùng khung 4K phù hợp tỷ lệ và gắn metadata 600 PPI. Nếu họ nêu rõ khổ in, tính pixel cần có từ khổ đó. Nếu họ đồng thời yêu cầu đúng 4K và 600 PPI hiệu dụng trên khổ lớn hơn kích thước in của khung 4K, nói rõ hai điều kiện đang xung đột và hỏi họ muốn ưu tiên điều kiện nào trước khi xuất bản in cuối.
 
-Extract PDF text where possible and compare it with the locked content inventory. Text extraction cannot confirm visual layout, so always pair it with rendered-page inspection.
+## Xuất và kiểm tra
 
-## Color and handoff
-
-- Do not claim CMYK or a specific color profile unless the file was exported and checked with the required profile.
-- Do not claim PDF/X compliance without a suitable preflight check.
-- Hand off the vector PDF, an editable SVG when appropriate, and a PNG preview if useful. State any raster artwork embedded in the vector-first file and any unconfirmed print-shop requirements.
+- Mặc định dùng PNG cho chữ, sơ đồ, nét mảnh và mảng màu phẳng. Dùng JPG chỉ khi người dùng hoặc nhà in yêu cầu; dùng TIFF khi quy trình in cần.
+- Gắn metadata 600 PPI bằng công cụ xuất ảnh. Đọc lại metadata sau khi lưu; không suy ra PPI từ tên tệp hoặc lời nhắc.
+- Xác minh chiều rộng và chiều cao pixel thực tế, tỷ lệ trang và độ sắc nét ở 100%.
+- Tính PPI hiệu dụng theo khổ in thực tế: pixel cạnh tương ứng ÷ kích thước cạnh tính bằng inch. Nếu máy in phóng ảnh 4K lên A4, độ phân giải hiệu dụng sẽ thấp hơn 600 PPI dù metadata ghi 600.
+- Không tuyên bố ảnh đã có profile CMYK hoặc chuẩn nhà in cụ thể nếu chưa xuất và kiểm tra với thông số đó.
+- Soát chính tả, dấu tiếng Việt, số liệu, lề an toàn, tương phản, chi tiết bị cắt và khả năng đọc ở kích thước in. Đối chiếu toàn bộ nội dung với danh sách đã khóa.
