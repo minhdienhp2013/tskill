@@ -9,3 +9,6 @@ Hãy dùng file Word `.docx` đính kèm làm nguồn và tạo một bản thi�
 - Gắn và kiểm tra metadata 600 PPI. Trong bản thử này, ưu tiên kích thước ảnh 4K và metadata 600 PPI. Nếu độ phân giải hiệu dụng khi in theo khổ trang Word thấp hơn 600 PPI, hãy nói rõ con số đó.
 - Soát ảnh ở 100% và đối chiếu nội dung với file Word. Nếu có đoạn nào không đọc chắc, hỏi về đúng đoạn đó thay vì đoán.
 - Chỉ bàn giao ảnh PNG; không tạo PDF hoặc SVG.
+
+
+Muốn thử ở 1200 PPI, thay dòng yêu cầu 600 PPI bằng yêu cầu 1200 PPI và nói rõ bạn cần metadata 1200 PPI hay độ phân giải hiệu dụng 1200 PPI tại khổ in. A4 ở 1200 PPI hiệu dụng cần khoảng 9921 × 14031 px.
